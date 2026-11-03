@@ -1,0 +1,15 @@
+# Node.js
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.env
+
+# Go
+*.exe
+*.test
+
+# Editor
+.vscode/
