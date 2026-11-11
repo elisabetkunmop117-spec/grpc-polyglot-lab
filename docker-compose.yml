@@ -1,20 +1,13 @@
-
-services:
+﻿services:
   go-server:
-    image: grpc-go-server
-    build:
-      context: .
-      dockerfile: go-server/Dockerfile
+    image: ghcr.io/elisabetkunmop117-spec/grpc-polyglot-lab-grpc-go-server:latest
     ports:
       - "50051:50051"
     networks:
       - grpc-network
 
   node-client:
-    image: grpc-node-client
-    build:
-      context: .
-      dockerfile: node-client/Dockerfile
+    image: ghcr.io/elisabetkunmop117-spec/grpc-polyglot-lab-grpc-node-client:latest
     environment:
       GRPC_SERVER: go-server:50051
     depends_on:
@@ -23,10 +16,7 @@ services:
       - grpc-network
 
   python-client:
-    image: grpc-python-client
-    build:
-      context: .
-      dockerfile: python-client/Dockerfile
+    image: ghcr.io/elisabetkunmop117-spec/grpc-polyglot-lab-grpc-python-client:latest
     environment:
       GRPC_SERVER: go-server:50051
     depends_on:
